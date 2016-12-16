@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Bus: NSObject {
+class Buses: NSObject {
     
     let key: String
     let name: String

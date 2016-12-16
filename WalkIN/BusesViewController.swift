@@ -27,6 +27,8 @@ class BusesViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var destination: String = ""
     
+    var center: CGFloat = 0.0
+    
     // MARK: Loading animation
     let loadingImageView = UIView()
     let containerLayer = CALayer()
@@ -90,23 +92,26 @@ class BusesViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         // getting data from firebase
         
+        self.fromButton.isEnabled = false
+        
         self.databaseReference.child("travel").child("buses").observe(FIRDataEventType.value, with: { (snapshot) in
             if !(snapshot.value is NSNull) {
                 let dataDictionary = snapshot.value as! [String: AnyObject]
                 
-                self.buses = [Bus]()
+                self.buses = [Buses]()
                 for data in dataDictionary {
                     
                     let key = data.key
                     let value = data.value as! NSDictionary
                     
-                    let bus = Bus(key: key, name: value["name"]! as! String, boardingPoint: value["boardingPoint"]! as! String, busType: value["busType"]! as! String, departureTime: value["departure"]! as! String, destination: value["destination"]! as! String)
+                    let bus = Buses(key: key, name: value["name"]! as! String, boardingPoint: value["boardingPoint"]! as! String, busType: value["busType"]! as! String, departureTime: value["departure"]! as! String, destination: value["destination"]! as! String)
                     
                     self.buses.append(bus)
                     
                 }
                 
                 self.loadingImageView.removeFromSuperview()
+                self.fromButton.isEnabled = true
                 
                 self.tableView.reloadData()
                 
@@ -120,8 +125,8 @@ class BusesViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         // setting table view border
         
-        self.tableView.layer.cornerRadius = 5.0
-        self.tableView.clipsToBounds = true
+//        self.tableView.layer.cornerRadius = 5.0
+//        self.tableView.clipsToBounds = true
         
         self.tableView.layer.masksToBounds = true
         self.tableView.layer.borderColor = self.themeColor.cgColor
@@ -160,6 +165,11 @@ class BusesViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.loadingImageView.frame = self.tableView.frame
         
         self.containerLayer.frame = CGRect(origin: CGPoint(x: self.tableView.center.x - 50, y: self.tableView.frame.height/2 - 50), size: CGSize(width: 100, height: 100))
+        
+        if self.center == 0.0 {
+            self.center = self.tableView.center.x
+        }
+        
         
     }
     
@@ -247,21 +257,21 @@ class BusesViewController: UIViewController, UITableViewDataSource, UITableViewD
             self.destination = self.buses[indexPath.row].destination
             self.isDestinationSelected = true
             
+            // change from button title
+            self.fromButton.setTitle(self.destination, for: UIControlState.normal)
+            
             self.filteredBuses = self.buses.filter({ rest in
                 return rest.destination == self.destination
             })
             
-            //change image
-            
-            // change from button title
-            self.fromButton.setTitle("Done", for: UIControlState.normal)
+            self.selectDestination(self)
             
         }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.isTableViewInDestinationMode {
-            return 44.0
+            return 50.0
         }
         else {
             return UITableViewAutomaticDimension
@@ -273,26 +283,49 @@ class BusesViewController: UIViewController, UITableViewDataSource, UITableViewD
         if self.isTableViewInDestinationMode {
             self.tableView.allowsSelection = false
             self.fromButton.setTitle(self.destination, for: UIControlState.normal)
+            self.fromButton.isEnabled = true
         }
         else {
             self.tableView.allowsSelection = true
+            self.fromButton.isEnabled = false
         }
         
-        let center = self.tableView.center.y
+        
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.tableView.center.y = center + self.view.bounds.height
-            
+            self.tableView.alpha = 0.0
         }, completion: { (finished) in
             
-            self.tableView.center.y = -center
-            self.tableView.isHidden = false
+            self.tableView.center.x = -self.center
+            self.tableView.alpha = 1.0
             self.isTableViewInDestinationMode = !self.isTableViewInDestinationMode
+            self.tableView.isHidden = false
             self.tableView.reloadData()
-            UIView.animate(withDuration: 0.5, animations: { 
-                self.tableView.center.y = center
+            self.tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at: UITableViewScrollPosition.top, animated: false)
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.tableView.center.x = self.center
             }, completion: nil)
+            
         })
+        
+//        UIView.animate(withDuration: 0.5, animations: {
+//            
+//            self.tableView.center.x = self.center + self.view.bounds.width
+//            
+//            
+//        }, completion: { (finished) in
+//            
+//            self.tableView.center.x = -self.center
+//            self.tableView.isHidden = false
+//            self.isTableViewInDestinationMode = !self.isTableViewInDestinationMode
+//            self.tableView.reloadData()
+//            self.tableView.scrollToRow(at: NSIndexPath(row: 0, section: 0) as IndexPath, at: UITableViewScrollPosition.top, animated: false)
+//            
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.tableView.center.x = self.center
+//            }, completion: nil)
+//        })
         
         
         
