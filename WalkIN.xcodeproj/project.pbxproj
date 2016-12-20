@@ -50,6 +50,7 @@
 		11B6884A1DA8C847003FED45 /* RestaurantsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B688491DA8C847003FED45 /* RestaurantsTableViewCell.swift */; };
 		11B6884E1DA8C890003FED45 /* RestaurantIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6884D1DA8C890003FED45 /* RestaurantIcon.swift */; };
 		11B688501DA8CA6F003FED45 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B6884F1DA8CA6F003FED45 /* Restaurant.swift */; };
+		11B9980C1E09E12C00E8A6F2 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B9980B1E09E12C00E8A6F2 /* CreditsViewController.swift */; };
 		11C6BA1D1DAF7EC3000F113E /* EntertainmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C6BA1C1DAF7EC3000F113E /* EntertainmentViewController.swift */; };
 		11C6BA241DAF955E000F113E /* ShoppingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C6BA231DAF955E000F113E /* ShoppingButton.swift */; };
 		11E033321DF92D1A00DC475D /* CabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E033311DF92D1A00DC475D /* CabsViewController.swift */; };
@@ -140,6 +141,7 @@
 		11B688491DA8C847003FED45 /* RestaurantsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsTableViewCell.swift; sourceTree = "<group>"; };
 		11B6884D1DA8C890003FED45 /* RestaurantIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantIcon.swift; sourceTree = "<group>"; };
 		11B6884F1DA8CA6F003FED45 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		11B9980B1E09E12C00E8A6F2 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		11C6BA1C1DAF7EC3000F113E /* EntertainmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntertainmentViewController.swift; sourceTree = "<group>"; };
 		11C6BA231DAF955E000F113E /* ShoppingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingButton.swift; sourceTree = "<group>"; };
 		11E033311DF92D1A00DC475D /* CabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabsViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				11E3BDFF1DC2869100CFC400 /* Tourist Spots */,
 				11E3BE0F1DC2BE8B00CFC400 /* Travel */,
 				11501F961DAEB008006601F6 /* Profile */,
+				11B998081E09952500E8A6F2 /* Credits */,
 				11B6883B1DA8998B003FED45 /* Ratings */,
 				11501F991DAEB384006601F6 /* Storyboards */,
 				1171FE3A1DA88F410045961C /* Facebook Framework */,
@@ -486,6 +489,15 @@
 				11B6884F1DA8CA6F003FED45 /* Restaurant.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		11B998081E09952500E8A6F2 /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				11B9980B1E09E12C00E8A6F2 /* CreditsViewController.swift */,
+			);
+			name = Credits;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		11C6BA1E1DAF7EC8000F113E /* Entertainment */ = {
@@ -944,6 +956,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11A45B641DBA813500A5CE6B /* MovieTheatresButton.swift in Sources */,
+				11B9980C1E09E12C00E8A6F2 /* CreditsViewController.swift in Sources */,
 				11A45B7C1DBE681400A5CE6B /* ShoppingTableViewCell.swift in Sources */,
 				11A45B761DBBEEF200A5CE6B /* ShoppingViewController.swift in Sources */,
 				11E3BDFA1DC242D600CFC400 /* ShoppingDetailsViewController.swift in Sources */,

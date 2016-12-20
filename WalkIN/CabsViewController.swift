@@ -48,6 +48,10 @@ class CabsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationController?.view.backgroundColor = self.themeColor
         
         
+        // setting right bar button item as settings icon
+        let settingsBarButtonItem = UIBarButtonItem(image: UIImage(named: "setting_icon"), style: .plain, target: self, action: #selector(CabsViewController.goToSettings))
+        self.navigationItem.rightBarButtonItem = settingsBarButtonItem
+        
         // setting back button to be empty
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
@@ -201,6 +205,18 @@ class CabsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.filterContentFor(searchText: searchController.searchBar.text!)
     }
 
+    
+    // MARK: Navigation
+    func goToSettings() {
+        self.performSegue(withIdentifier: "goToSettings", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSettings" {
+            let destinationViewController = segue.destination as! UserViewController
+            destinationViewController.themeColor = self.themeColor
+        }
+    }
     
     
 
