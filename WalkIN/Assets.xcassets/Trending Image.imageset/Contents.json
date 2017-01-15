@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "popcorn.png",
+      "filename" : "Trending Image.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "popcorn@2x.png",
+      "filename" : "Trending Image@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "popcorn@3x.png",
+      "filename" : "Trending Image@3x.png",
       "scale" : "3x"
     }
   ],

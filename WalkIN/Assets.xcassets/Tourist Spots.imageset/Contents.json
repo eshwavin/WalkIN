@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Oval2.png",
+      "filename" : "Tourist Spots.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Oval2@2x.png",
+      "filename" : "Tourist Spots@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Oval2@3x.png",
+      "filename" : "Tourist Spots@3x.png",
       "scale" : "3x"
     }
   ],
