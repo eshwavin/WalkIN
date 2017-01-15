@@ -12,11 +12,8 @@ import FirebaseDatabase
 
 class RestaurantsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
 
-    @IBInspectable var themeColor: UIColor = UIColor.white
-    let gradientLayer = CAGradientLayer()
     
     // MARK: Outlets
-    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: Loading animation
@@ -56,7 +53,7 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         
         // adding loading view animation
         
-        self.loadingImageView.backgroundColor = UIColor(red: 53.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1.0)
+        self.loadingImageView.backgroundColor = restaurantsColor
         
         self.imageLayer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         self.imageLayer.contents = RestaurantIcon().restaurantIcon.cgImage
@@ -68,8 +65,10 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         
         self.view.addSubview(self.loadingImageView)
         
+        // modifying search controller
         
-        
+        self.searchController.searchBar.searchBarStyle = .minimal
+        self.searchController.searchBar.tintColor = restaurantsColor
         
         // disabling settings view for guest users
         if isGuest {
@@ -77,9 +76,11 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
         // setting navigation bar as transparent
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = self.themeColor
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = restaurantsColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         
         // setting title of the screen
@@ -88,28 +89,11 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         // setting back button to be empty
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         
-        // adding gradient
-        let color1 = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor as CGColor
-        let color2 = UIColor(red: 50.0/255.0, green: 50.0/255.0, blue: 50.0/255.0, alpha: 1.0).cgColor as CGColor
-        self.gradientLayer.colors = [color1, color2]
-        self.gradientLayer.locations = [0.0, 1.0]
-        
-        self.gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        self.gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        
-        self.backgroundImageView.layer.insertSublayer(self.gradientLayer, at: 0)
-        
         // search controller
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         self.definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
-        
-        // modifying search controller UI
-        self.searchController.searchBar.backgroundColor = UIColor.black
-        self.searchController.searchBar.barTintColor = UIColor.black
-        self.searchController.searchBar.tintColor = self.themeColor
-        self.searchController.searchBar.backgroundImage = UIImage()
         
         // load restaurant data
         self.databaseReference.child("restaurants").observe(FIRDataEventType.value, with: { (snapshot) in
@@ -175,23 +159,10 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // setting frame of the gradient
-        self.gradientLayer.frame = self.backgroundImageView.frame
-        //        self.loadingImageView.frame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY + (self.navigationController?.navigationBar.frame.height)! + 20.0 , width: self.view.frame.width, height: self.tableView.frame.height)
         
         self.loadingImageView.frame = self.tableView.frame
         
         self.containerLayer.frame = CGRect(origin: CGPoint(x: self.tableView.center.x - 50, y: self.tableView.frame.height/2 - 50), size: CGSize(width: 100, height: 100))
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // setting navigation bar and tab bar color to theme color
-        UIView.transition(with: (self.navigationController?.navigationBar)!, duration: 0.8, options: [], animations: {
-            self.navigationController?.navigationBar.tintColor = self.themeColor
-            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: self.themeColor]
-            self.tabBarController?.tabBar.tintColor = self.themeColor
-            }, completion: nil)
         
     }
     
@@ -265,9 +236,7 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         
         label.attributedText = attributedText
         
-        let color = CoreImage.CIColor(color: self.themeColor)
-        
-        label.backgroundColor = UIColor(red: color.red, green: color.green, blue: color.blue, alpha: 1.0)
+        label.backgroundColor = restaurantsColor
         
         return label
         
@@ -309,7 +278,6 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
             let restaurant = self.filteredRestaurants[indexPath.row]
             
             ratingCount = restaurant.no1 + restaurant.no2 + restaurant.no3 + restaurant.no4 + restaurant.no5
-            cell.ratingCount.textColor = self.themeColor
             cell.ratingCount.text = "(\(ratingCount))"
             
             if restaurant.images == 0 {
@@ -368,7 +336,7 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
             }
             
             ratingCount = restaurant.no1 + restaurant.no2 + restaurant.no3 + restaurant.no4 + restaurant.no5
-            cell.ratingCount.textColor = self.themeColor
+
             cell.ratingCount.text = "(\(ratingCount))"
             
             
@@ -450,11 +418,7 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToSettings" {
-            let destinationViewController = segue.destination as! UserViewController
-            destinationViewController.themeColor = self.themeColor
-        }
-        else if segue.identifier == "goToDetails" {
+        if segue.identifier == "goToDetails" {
             // pass data
             let destinationViewController = segue.destination as! RestaurantsDetailsViewController
             destinationViewController.restaurant = self.selectedRestaurant

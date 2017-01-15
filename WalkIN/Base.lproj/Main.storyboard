@@ -965,7 +965,7 @@
         <!--Restaurants View Controller-->
         <scene sceneID="7BJ-Xr-laQ">
             <objects>
-                <viewController id="qgO-Pl-CkD" customClass="RestaurantsViewController" customModule="WalkIN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qgO-Pl-CkD" customClass="RestaurantsViewController" customModule="WalkIN" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iPE-L1-9jn"/>
                         <viewControllerLayoutGuide type="bottom" id="pWK-5G-Xgf"/>
@@ -974,9 +974,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aG9-9E-ABx">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="puU-B7-RHM">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -997,13 +994,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dv-h5-UC3">
                                                     <rect key="frame" x="84" y="8" width="228" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speciality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afu-Yj-fJn">
                                                     <rect key="frame" x="84" y="34" width="228" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQ0-0D-v3h" customClass="RatingsView" customModule="WalkIN" customModuleProvider="target">
@@ -1014,7 +1010,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
-                                                            <color key="value" red="0.20784313730000001" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.79607843140000001" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -1024,7 +1020,7 @@
                                                         <constraint firstAttribute="height" constant="19" id="yJ9-2Z-yjW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.20784313730000001" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.79607843140000001" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1064,18 +1060,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="puU-B7-RHM" firstAttribute="top" secondItem="iPE-L1-9jn" secondAttribute="bottom" id="78k-Qv-4cp"/>
-                            <constraint firstItem="aG9-9E-ABx" firstAttribute="leading" secondItem="iDy-tA-pT8" secondAttribute="leading" id="CII-Lh-3oU"/>
-                            <constraint firstItem="aG9-9E-ABx" firstAttribute="top" secondItem="iDy-tA-pT8" secondAttribute="top" id="JfQ-3F-aeM"/>
                             <constraint firstItem="puU-B7-RHM" firstAttribute="leading" secondItem="iDy-tA-pT8" secondAttribute="leading" id="Rdl-Ja-PA1"/>
-                            <constraint firstAttribute="trailing" secondItem="aG9-9E-ABx" secondAttribute="trailing" id="mCc-B9-KXW"/>
-                            <constraint firstAttribute="bottom" secondItem="aG9-9E-ABx" secondAttribute="bottom" id="mx5-ea-hMr"/>
                             <constraint firstAttribute="trailing" secondItem="puU-B7-RHM" secondAttribute="trailing" id="pPb-CF-BoS"/>
                             <constraint firstItem="pWK-5G-Xgf" firstAttribute="top" secondItem="puU-B7-RHM" secondAttribute="bottom" id="u93-AE-x1w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cAE-TE-WVd">
                         <barButtonItem key="rightBarButtonItem" image="setting_icon" id="zNM-hz-GD3">
-                            <color key="tintColor" red="0.20784313730000001" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="kpU-I6-A55" kind="show" identifier="goToSettings" id="ErZ-hV-uv8"/>
                             </connections>
@@ -1087,7 +1079,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="backgroundImageView" destination="aG9-9E-ABx" id="MRj-zI-dfp"/>
                         <outlet property="tableView" destination="puU-B7-RHM" id="8P8-M3-Aj2"/>
                         <segue destination="k2c-w5-ghN" kind="show" identifier="goToDetails" id="yDy-Ts-9hI"/>
                     </connections>
@@ -2260,7 +2251,7 @@
         <segue reference="bEF-VC-3EY"/>
         <segue reference="JeP-YF-j7M"/>
         <segue reference="xQX-dc-BrV"/>
-        <segue reference="RRF-9O-8uu"/>
-        <segue reference="1iZ-yI-hJ9"/>
+        <segue reference="yDy-Ts-9hI"/>
+        <segue reference="ErZ-hV-uv8"/>
     </inferredMetricsTieBreakers>
 </document>
