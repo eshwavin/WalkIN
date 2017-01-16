@@ -10,7 +10,7 @@ import UIKit
 
 class SingleStarView: UIView {
 
-    var themeColor: UIColor = UIColor.white
+    @IBInspectable var themeColor: UIColor = UIColor.white
     
     
     override func draw(_ rect: CGRect) {

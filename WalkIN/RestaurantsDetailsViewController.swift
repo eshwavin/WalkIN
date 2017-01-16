@@ -13,16 +13,12 @@ import FirebaseAuth
 
 class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBInspectable var themeColor: UIColor = UIColor.white
-    
     var shouldAddRatingGestureRecognizer = true
-    let gradientLayer: CAGradientLayer = CAGradientLayer()
     var restaurant: Restaurant!
     var userRatingsView: RatingsView = RatingsView()
     var ratingCount = 0
@@ -45,16 +41,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // setting up background gradient
-        let color1 = UIColor.black.cgColor as CGColor
-        let color2 = UIColor(red: 70.0 / 255.0, green: 70.0 / 255.0, blue: 70.0 / 255.0, alpha: 1.0).cgColor as CGColor
-        self.gradientLayer.colors = [color1, color2]
-        self.gradientLayer.startPoint = CGPoint(x: 0.8, y: 0.8)
-        self.gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-        self.gradientLayer.locations = [0.0, 1.0]
-        
-        self.backgroundImageView.layer.addSublayer(self.gradientLayer)
         
         // setting title
         self.title = self.restaurant.name
@@ -116,7 +102,7 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.gray
         self.pageControl.pageIndicatorTintColor = UIColor.white
-        self.pageControl.currentPageIndicatorTintColor = self.themeColor
+        self.pageControl.currentPageIndicatorTintColor = restaurantsColor
         self.pageControl.addTarget(self, action: #selector(RestaurantsDetailsViewController.changePage(_:)), for: UIControlEvents.valueChanged)
         
         // configuring scroll view
@@ -132,8 +118,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        self.gradientLayer.frame = self.backgroundImageView.bounds
         
         // loading images for scroll view
         var imageReference = self.storageReference.child("restaurants")
@@ -187,16 +171,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // setting navigation bar and tab bar color to theme color
-        UIView.transition(with: (self.navigationController?.navigationBar)!, duration: 0.8, options: [], animations: {
-            self.navigationController?.navigationBar.tintColor = self.themeColor
-            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: self.themeColor]
-            self.tabBarController?.tabBar.tintColor = self.themeColor
-            }, completion: nil)
-        
-    }
         
     // MARK: Page Control
     func changePage(_ sender: AnyObject) {
@@ -217,13 +191,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
         self.performSegue(withIdentifier: "goToSettings", sender: self)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "goToSettings" {
-//            let destinationViewController = segue.destinationViewController as! UserViewController
-//            destinationViewController.themeColor = self.themeColor
-//        }
-//    }
-
     // MARK: Table View Data Source Delegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
@@ -233,27 +200,27 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
         return 1
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        if section == 0 {
-//            return ""
-//        }
-//        else {
-//            return "Section \(section)"
-//        }
-//    }
-//    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let label: UILabel = UILabel()
-        let attributedText = NSMutableAttributedString(string: "  " + self.sectionTitles[section])
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 30.0))
         
-        attributedText.addAttributes([NSForegroundColorAttributeName: self.themeColor], range: NSRange(location: 0, length: attributedText.length))
+        headerView.backgroundColor = UIColor.white
         
+        let label: UILabel = UILabel(frame: CGRect(x: 10, y: 0, width: self.tableView.frame.size.width - 40.0, height: 30.0))
+        let attributedText = NSMutableAttributedString(string: self.sectionTitles[section])
+        
+        
+//        attributedText.addAttributes([NSForegroundColorAttributeName: restaurantsColor], range: NSRange(location: 0, length: attributedText.length))
         
         label.attributedText = attributedText
-        label.backgroundColor = UIColor.black
         
-        return label
+        let lineView = UIView(frame: CGRect(x: 1, y: 26, width: 40, height: 2))
+        lineView.backgroundColor = UIColor(red: 254.0/255.0, green: 56.0/255.0, blue: 36.0/255.0, alpha: 1.0)
+        
+        label.addSubview(lineView)
+        headerView.addSubview(label)
+        
+        return headerView
         
     }
     
@@ -370,12 +337,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
             let ratingCount = self.restaurant.no1 + self.restaurant.no2 + self.restaurant.no3 + self.restaurant.no4 + self.restaurant.no5
             self.ratingCount = ratingCount
             
-//            cell.ratingIndicator1.themeColor = self.themeColor
-//            cell.ratingIndicator2.themeColor = self.themeColor
-//            cell.ratingIndicator3.themeColor = self.themeColor
-//            cell.ratingIndicator4.themeColor = self.themeColor
-//            cell.ratingIndicator5.themeColor = self.themeColor
-            
             cell.ratingIndicator1.percentage = CGFloat(self.restaurant.no1) / CGFloat(ratingCount)
             cell.ratingIndicator2.percentage = CGFloat(self.restaurant.no2) / CGFloat(ratingCount)
             cell.ratingIndicator3.percentage = CGFloat(self.restaurant.no3) / CGFloat(ratingCount)
@@ -394,18 +355,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
             cell.ratingIndicator4.layer.cornerRadius = 1.5
             cell.ratingIndicator5.layer.cornerRadius = 1.5
             
-//            cell.ratingHeading1.themeColor = self.themeColor
-//            cell.ratingHeading2.themeColor = self.themeColor
-//            cell.ratingHeading3.themeColor = self.themeColor
-//            cell.ratingHeading4.themeColor = self.themeColor
-//            cell.ratingHeading5.themeColor = self.themeColor
-            
-//            cell.userRating.themeColor = self.themeColor
-//            
-//            cell.starView.themeColor = self.themeColor
-//            
-//            cell.ratingLabel.textColor = self.themeColor
-            
             let ratingToRound = 10 * self.restaurant.rating
             let integerRating = round(ratingToRound)
             
@@ -414,8 +363,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
             
             
             cell.ratingLabel.text = "\(actualRating)"
-            
-//            cell.ratingCountLabel.textColor = self.themeColor
             cell.ratingCountLabel.text = "(\(ratingCount))"
             
             if isGuest {
@@ -493,7 +440,7 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
             return 150.0
         }
         else {
-            return 70.0
+            return UITableViewAutomaticDimension
         }
     }
     
@@ -591,7 +538,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
             case 2:
                 
                 restaurantReference.runTransactionBlock({ (currentData) -> FIRTransactionResult in
-                    
                     if var currentRestaurantData = currentData.value as? [String: AnyObject] {
                         
                         if let no1 = currentRestaurantData["no1"] as? Int, var rating = currentRestaurantData["rating"] as? Float, var no2 = currentRestaurantData["no2"] as? Int, let no3 = currentRestaurantData["no3"] as? Int, let no4 = currentRestaurantData["no4"] as? Int, let no5 = currentRestaurantData["no5"] as? Int{
@@ -803,14 +749,6 @@ class RestaurantsDetailsViewController: UIViewController, UITableViewDataSource,
             self.userRatingsView.isUserInteractionEnabled = true
         }
         
-    }
-
-    // MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToSettings" {
-            let destinationViewController = segue.destination as! UserViewController
-            destinationViewController.themeColor = self.themeColor
-        }
     }
 
     

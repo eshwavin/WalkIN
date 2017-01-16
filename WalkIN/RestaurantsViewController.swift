@@ -48,6 +48,8 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = restaurantsColor
+        
         // setting row height
         self.tableView.rowHeight = 84.0
         
@@ -75,7 +77,7 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
             self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
         
-        // setting navigation bar as transparent
+        // setting navigation bar UI
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = restaurantsColor
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -95,6 +97,15 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         self.definesPresentationContext = true
         self.tableView.tableHeaderView = searchController.searchBar
         
+        // modifying search controller UI
+        self.searchController.searchBar.backgroundColor = grayColor
+        self.searchController.searchBar.barTintColor = restaurantsColor
+        self.searchController.searchBar.tintColor = restaurantsColor
+//        self.searchController.searchBar.backgroundImage = UIImage()
+        self.searchController.searchBar.textColor = restaurantsColor
+        
+        self.searchController.searchBar.setSearchFieldBackgroundImage(self.createImageFromColor(), for: .normal)
+        
         // load restaurant data
         self.databaseReference.child("restaurants").observe(FIRDataEventType.value, with: { (snapshot) in
             if !(snapshot.value is NSNull) {
@@ -110,8 +121,6 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
                     let value = data.value as! [String: AnyObject]
                     
                     let homeDelivery = (value["home_delivery"] as? String) == "No" ? false : true
-                    
-                    
                     
                     let restaurant = Restaurant(id: key, rid: value["rid"] as! Int, name: value["name"] as! String, timings: value["timings"] as! String, contact: value["contact"] as! String, address: value["address"] as! String, speciality: value["speciality"] as! String, rdescription: value["description"] as! String, weblink: value["weblink"] as! String, homeDelivery: homeDelivery, no5: value["no5"] as! Int, no4: value["no4"] as! Int, no3: value["no3"] as! Int, no2: value["no2"] as! Int, no1: value["no1"] as! Int, rating: value["rating"] as! Float, images: value["images"] as! Int)
                     
@@ -425,5 +434,38 @@ class RestaurantsViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
+    func createImageFromColor() -> UIImage {
+    
+        let imageSize = CGSize(width: 30, height: 30)
+        let imageSizeRectF = CGRect(x: 0, y: 0, width: 30, height: 30)
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+//        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        let color = UIColor.white.cgColor as CGColor
+        context?.setFillColor(color)
+        context?.fill(imageSizeRectF)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!;
+    }
 
+}
+
+extension UISearchBar {
+    
+    var textColor:UIColor? {
+        get {
+            if let textField = self.value(forKey: "searchField") as? UITextField  {
+                return textField.textColor
+            } else {
+                return nil
+            }
+        }
+        
+        set (newValue) {
+            if let textField = self.value(forKey: "searchField") as? UITextField  {
+                textField.textColor = newValue
+            }
+        }
+    }
 }

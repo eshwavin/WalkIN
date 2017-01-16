@@ -10,12 +10,12 @@ import UIKit
 
 class RatingIndicatorView: UIView {
 
+    @IBInspectable var themeColor: UIColor = UIColor.white
     var percentage: CGFloat = 0.5
-    var themeColor: UIColor = UIColor.white
     
     override func draw(_ rect: CGRect) {
         
-        let backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.1)
+        let backgroundColor = UIColor(red: 192.0/255.0, green: 188.0/255.0, blue: 188.0/255.0, alpha: 1.0)
         backgroundColor.setFill()
         let backgroundPath = UIBezierPath(roundedRect: rect, cornerRadius: 1.5)
         backgroundPath.fill()

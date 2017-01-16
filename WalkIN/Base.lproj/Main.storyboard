@@ -976,7 +976,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="puU-B7-RHM">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="restaurantCell" rowHeight="84" id="jog-RU-PFz" customClass="RestaurantsTableViewCell" customModule="WalkIN" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="84"/>
@@ -1010,7 +1010,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
-                                                            <color key="value" red="0.79607843140000001" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="value" red="0.99607843137254903" green="0.2196078431372549" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -1020,7 +1020,7 @@
                                                         <constraint firstAttribute="height" constant="19" id="yJ9-2Z-yjW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.79607843140000001" green="0.12549019610000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1085,7 +1085,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDe-WM-dco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="534" y="321"/>
+            <point key="canvasLocation" x="533" y="321"/>
         </scene>
         <!--Restaurants Details View Controller-->
         <scene sceneID="Pbc-wR-7lt">
@@ -1099,9 +1099,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eDQ-p1-CD5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eW-kX-2Ek">
                                 <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <constraints>
@@ -1110,7 +1107,7 @@
                             </scrollView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wiv-4p-ZCa">
                                 <rect key="frame" x="0.0" y="225" width="320" height="294"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="restaurantsDetailsCell" rowHeight="60" id="CjN-4G-0L7" customClass="RestaurantsDetailsTableViewCell" customModule="WalkIN" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="60"/>
@@ -1121,8 +1118,8 @@
                                             <subviews>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9y-wc-6sP">
                                                     <rect key="frame" x="8" y="8" width="304" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1156,6 +1153,9 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                             <real key="value" value="5"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlm-RN-PDA" customClass="RatingIndicatorView" customModule="WalkIN" customModuleProvider="target">
@@ -1164,6 +1164,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="3" id="qNW-9w-kMS"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvq-Mw-pV4" customClass="RatingsView" customModule="WalkIN" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="24" width="60" height="12"/>
@@ -1175,6 +1180,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                             <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -1189,6 +1197,9 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                             <real key="value" value="3"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZc-Wx-lgs" customClass="RatingsView" customModule="WalkIN" customModuleProvider="target">
@@ -1201,6 +1212,9 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                             <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -1215,6 +1229,9 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="rating">
                                                             <real key="value" value="1"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73K-EV-2sG" customClass="RatingIndicatorView" customModule="WalkIN" customModuleProvider="target">
@@ -1224,6 +1241,11 @@
                                                         <constraint firstAttribute="height" constant="3" id="Dnn-pa-cqE"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="3" id="Wfy-Tr-eI7"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMR-Lz-No4" customClass="RatingIndicatorView" customModule="WalkIN" customModuleProvider="target">
                                                     <rect key="frame" x="76" y="45" width="236" height="3"/>
@@ -1232,6 +1254,11 @@
                                                         <constraint firstAttribute="height" constant="3" id="Szx-yc-Ukb"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="3" id="dFN-xg-CVf"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-H9-iDw" customClass="RatingIndicatorView" customModule="WalkIN" customModuleProvider="target">
                                                     <rect key="frame" x="76" y="61" width="236" height="3"/>
@@ -1240,6 +1267,11 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="3" id="OhL-nn-ja2"/>
                                                         <constraint firstAttribute="height" constant="3" id="dPY-Gx-2Jo"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bj-jp-szV" customClass="RatingIndicatorView" customModule="WalkIN" customModuleProvider="target">
                                                     <rect key="frame" x="76" y="77" width="236" height="3"/>
@@ -1248,11 +1280,16 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="3" id="78m-3d-gLx"/>
                                                         <constraint firstAttribute="height" constant="3" id="NUE-vr-2jV"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Dc-JT-Vt1">
                                                     <rect key="frame" x="8" y="102" width="25" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vjh-6k-ppb" customClass="SingleStarView" customModule="WalkIN" customModuleProvider="target">
@@ -1261,11 +1298,16 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Vjh-6k-ppb" secondAttribute="height" multiplier="1:1" id="sii-s5-uFr"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inl-jD-b8x">
                                                     <rect key="frame" x="8" y="124" width="46" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dd8-cQ-y87" customClass="RatingsView" customModule="WalkIN" customModuleProvider="target">
@@ -1274,6 +1316,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="dd8-cQ-y87" secondAttribute="height" multiplier="5:1" id="hww-gG-KzM"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -1348,17 +1395,13 @@
                             <constraint firstItem="SXD-ZM-zgb" firstAttribute="top" secondItem="wiv-4p-ZCa" secondAttribute="bottom" id="7jr-tW-g4f"/>
                             <constraint firstItem="6Kw-QW-LTU" firstAttribute="leading" secondItem="WBb-I7-V3E" secondAttribute="leadingMargin" id="BJ1-CH-lfA"/>
                             <constraint firstItem="6Kw-QW-LTU" firstAttribute="bottom" secondItem="3eW-kX-2Ek" secondAttribute="bottom" constant="-5" id="F71-U2-SQ2"/>
-                            <constraint firstItem="eDQ-p1-CD5" firstAttribute="top" secondItem="WBb-I7-V3E" secondAttribute="top" id="FEE-YA-VId"/>
                             <constraint firstItem="3eW-kX-2Ek" firstAttribute="leading" secondItem="WBb-I7-V3E" secondAttribute="leading" id="J2K-or-OGn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Kw-QW-LTU" secondAttribute="trailing" id="LO2-Xr-rDg"/>
                             <constraint firstItem="wiv-4p-ZCa" firstAttribute="leading" secondItem="WBb-I7-V3E" secondAttribute="leading" id="Mao-xQ-Sib"/>
                             <constraint firstAttribute="trailing" secondItem="wiv-4p-ZCa" secondAttribute="trailing" id="ZYg-p5-aAU"/>
                             <constraint firstAttribute="trailing" secondItem="3eW-kX-2Ek" secondAttribute="trailing" id="Zi7-1z-Hrf"/>
                             <constraint firstItem="3eW-kX-2Ek" firstAttribute="top" secondItem="rnH-xb-Kgm" secondAttribute="bottom" id="b9J-xe-1J8"/>
-                            <constraint firstAttribute="trailing" secondItem="eDQ-p1-CD5" secondAttribute="trailing" id="hKN-Ja-LZR"/>
-                            <constraint firstAttribute="bottom" secondItem="eDQ-p1-CD5" secondAttribute="bottom" id="mY6-3v-d5r"/>
                             <constraint firstItem="wiv-4p-ZCa" firstAttribute="top" secondItem="3eW-kX-2Ek" secondAttribute="bottom" constant="1" id="oPM-pa-C1J"/>
-                            <constraint firstItem="eDQ-p1-CD5" firstAttribute="leading" secondItem="WBb-I7-V3E" secondAttribute="leading" id="vKc-fm-Wfi"/>
                         </constraints>
                     </view>
                     <userDefinedRuntimeAttributes>
@@ -1367,9 +1410,8 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="backgroundImageView" destination="eDQ-p1-CD5" id="uhM-77-SPy"/>
                         <outlet property="pageControl" destination="6Kw-QW-LTU" id="yrd-dg-j68"/>
-                        <outlet property="scrollView" destination="3eW-kX-2Ek" id="Yoh-1K-6Ke"/>
+                        <outlet property="scrollView" destination="3eW-kX-2Ek" id="dB5-WR-WDx"/>
                         <outlet property="tableView" destination="wiv-4p-ZCa" id="nRx-dX-PQb"/>
                         <segue destination="kpU-I6-A55" kind="show" identifier="goToSettings" id="5Cy-Qx-arW"/>
                     </connections>
@@ -1773,7 +1815,7 @@
         <!--Trending List View Controller-->
         <scene sceneID="6dy-8S-zSw">
             <objects>
-                <viewController id="Dt1-wd-uD2" customClass="TrendingListViewController" customModule="WalkIN" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Dt1-wd-uD2" customClass="TrendingListViewController" customModule="WalkIN" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IDU-Yk-Ch6"/>
                         <viewControllerLayoutGuide type="bottom" id="xsp-aQ-3HV"/>
@@ -1782,12 +1824,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ckp-cA-UtV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N96-84-cQS">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="trendingRestaurantCell" rowHeight="84" id="Z8U-qe-IGN" customClass="TrendingRestaurantsTableViewCell" customModule="WalkIN" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="84"/>
@@ -1805,13 +1845,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Mo-Wg-lDD">
                                                     <rect key="frame" x="84" y="8" width="228" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                    <color key="textColor" red="0.78823529410000004" green="0.58874705719999998" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speciality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUZ-01-tel">
                                                     <rect key="frame" x="84" y="34" width="228" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.78823529410000004" green="0.58874705719999998" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wH-dO-qlj" customClass="RatingsView" customModule="WalkIN" customModuleProvider="target">
@@ -1822,7 +1861,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="themeColor">
-                                                            <color key="value" red="0.78823529410000004" green="0.58874705719999998" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="value" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -1832,7 +1871,7 @@
                                                         <constraint firstAttribute="height" constant="19" id="R6d-IV-hUM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" red="0.78823529410000004" green="0.58874705719999998" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1872,13 +1911,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="N96-84-cQS" firstAttribute="leading" secondItem="QTA-5i-Jz3" secondAttribute="leading" id="15x-an-TeX"/>
-                            <constraint firstAttribute="bottom" secondItem="ckp-cA-UtV" secondAttribute="bottom" id="2X4-0D-68e"/>
-                            <constraint firstAttribute="trailing" secondItem="ckp-cA-UtV" secondAttribute="trailing" id="5XV-Gu-vIE"/>
                             <constraint firstAttribute="trailing" secondItem="N96-84-cQS" secondAttribute="trailing" id="9j5-0Q-Py8"/>
                             <constraint firstItem="xsp-aQ-3HV" firstAttribute="top" secondItem="N96-84-cQS" secondAttribute="bottom" id="B7K-Tu-CRa"/>
-                            <constraint firstItem="ckp-cA-UtV" firstAttribute="top" secondItem="QTA-5i-Jz3" secondAttribute="top" id="MEi-KP-wl2"/>
                             <constraint firstItem="N96-84-cQS" firstAttribute="top" secondItem="IDU-Yk-Ch6" secondAttribute="bottom" id="QoV-sK-x7U"/>
-                            <constraint firstItem="ckp-cA-UtV" firstAttribute="leading" secondItem="QTA-5i-Jz3" secondAttribute="leading" id="Z4w-bF-1MP"/>
                         </constraints>
                     </view>
                     <userDefinedRuntimeAttributes>
@@ -1887,7 +1922,6 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="backgroundImageView" destination="ckp-cA-UtV" id="njM-2b-jpB"/>
                         <outlet property="tableView" destination="N96-84-cQS" id="DdA-3l-y6p"/>
                         <segue destination="k2c-w5-ghN" kind="show" identifier="showRestaurantDetails" id="1iZ-yI-hJ9"/>
                         <segue destination="kpU-I6-A55" kind="show" identifier="goToSettings" id="zEr-qg-lzd"/>
@@ -2248,10 +2282,10 @@
         <image name="setting_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bEF-VC-3EY"/>
-        <segue reference="JeP-YF-j7M"/>
         <segue reference="xQX-dc-BrV"/>
-        <segue reference="yDy-Ts-9hI"/>
-        <segue reference="ErZ-hV-uv8"/>
+        <segue reference="JeP-YF-j7M"/>
+        <segue reference="bEF-VC-3EY"/>
+        <segue reference="1iZ-yI-hJ9"/>
+        <segue reference="zEr-qg-lzd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,12 +17,14 @@ class TrendingViewController: UIViewController {
         
         // setting back button to be empty
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
-
         
         // setting navigation bar as transparent
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
+        // setting tab bar to be opaque
+        self.tabBarController?.tabBar.isTranslucent = false
         
         // disabling settings view for guest users
         if isGuest {
@@ -33,6 +35,11 @@ class TrendingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // setting navigation bar as transparent
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
         
         for i in 1...4 {
             self.view.viewWithTag(i)?.alpha = 1.0

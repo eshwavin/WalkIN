@@ -13,19 +13,6 @@ import FirebaseDatabase
 class TrendingListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    
-    @IBInspectable var restaurantThemeColor: UIColor = UIColor.blue
-    @IBInspectable var moviesThemeColor: UIColor = UIColor.red
-    @IBInspectable var touristThemeColor: UIColor = UIColor.green
-    @IBInspectable var shoppingThemeColor: UIColor = UIColor.red
-    
-    var selectedThemeColor = UIColor.white
-    
-    let gradientLayer = CAGradientLayer()
-    
-    // MARK: Passed from previous view
-    var trendingType: String = "Restaurants"
     
     // MARK: Required for table view
     
@@ -63,25 +50,16 @@ class TrendingListViewController: UIViewController, UITableViewDataSource, UITab
         }
         
         // setting title of the screen
-        self.title = self.trendingType
-        
-        // adding gradient to background
-        let color1 = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0).cgColor as CGColor
-        let color2 = UIColor(red: 50.0/255.0, green: 50.0/255.0, blue: 50.0/255.0, alpha: 1.0).cgColor as CGColor
-        self.gradientLayer.colors = [color1, color2]
-        self.gradientLayer.locations = [0.0, 1.0]
-        self.backgroundImageView.layer.insertSublayer(self.gradientLayer, at: 0)
+        self.title = "Trending Restaurants"
         
         
-        // getting the theme color
-        self.selectedThemeColor = self.restaurantThemeColor
         
         // setting row height
         self.tableView.rowHeight = 84.0
         
         // adding loading view animation
         
-        self.loadingImageView.backgroundColor = UIColor(red: 53.0/255.0, green: 152.0/255.0, blue: 219.0/255.0, alpha: 1.0)
+        self.loadingImageView.backgroundColor = restaurantsColor
         
         self.imageLayer.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         self.imageLayer.contents = RestaurantIcon().restaurantIcon.cgImage
@@ -127,29 +105,34 @@ class TrendingListViewController: UIViewController, UITableViewDataSource, UITab
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        UIView.transition(with: (self.navigationController?.navigationBar)!, duration: 0.8, options: [], animations: {
-            self.navigationController?.navigationBar.tintColor = self.restaurantThemeColor
-            self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: self.restaurantThemeColor]
-            self.tabBarController?.tabBar.tintColor = self.restaurantThemeColor
-            }, completion: nil)
-
+        if self.loadingImageView.superview != nil {
+            self.loadingImageView.frame = self.tableView.frame
+            self.containerLayer.frame = CGRect(origin: CGPoint(x: self.tableView.center.x - 50, y: self.tableView.frame.height/2 - 50), size: CGSize(width: 100, height: 100))
+        }
+        
+        
+        
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.gradientLayer.frame = self.backgroundImageView.frame
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.loadingImageView.frame = self.tableView.frame
+        // setting navigation bar UI
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = restaurantsColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-        self.containerLayer.frame = CGRect(origin: CGPoint(x: self.tableView.center.x - 50, y: self.tableView.frame.height/2 - 50), size: CGSize(width: 100, height: 100))
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // setting animation of loading view
         
         if self.loadingImageView.superview != nil {
             let loadingAnimation = CABasicAnimation(keyPath: "transform.rotation.y")
@@ -181,7 +164,7 @@ class TrendingListViewController: UIViewController, UITableViewDataSource, UITab
             animationGroup.repeatCount = Float.infinity
             animationGroup.duration = 1.2
             
-            self.imageLayer.add(animationGroup, forKey: "loading")
+            self.imageLayer.add(animationGroup, forKey: nil)
         }
 
     }
@@ -232,13 +215,6 @@ class TrendingListViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
         
-        // setting all colours
-        cell.titleLabel.textColor = self.restaurantThemeColor
-        cell.speciality.textColor = self.restaurantThemeColor
-        cell.ratingsView.themeColor = self.restaurantThemeColor
-        cell.ratingsCount.textColor = self.restaurantThemeColor
-        
-        
         return cell
 
     }
@@ -261,10 +237,6 @@ class TrendingListViewController: UIViewController, UITableViewDataSource, UITab
         if segue.identifier == "showRestaurantDetails" {
             let destinationViewController = segue.destination as! RestaurantsDetailsViewController
             destinationViewController.restaurant = self.selectedRestaurant
-        }
-        else if segue.identifier == "goToSettings" {
-            let destinationViewController = segue.destination as! UserViewController
-            destinationViewController.themeColor = self.selectedThemeColor
         }
         
     }

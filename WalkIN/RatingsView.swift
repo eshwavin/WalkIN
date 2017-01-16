@@ -18,7 +18,9 @@ class RatingsView: UIView {
         
         let lineWidth = 0.5
         
-        self.themeColor.set()
+        UIColor(red: 192.0/255.0, green: 188.0/255.0, blue: 188.0/255.0, alpha: 1.0).setStroke()
+        
+        self.themeColor.setFill()
         
         var points: [CGPoint] = [CGPoint(x: dimension / 2.0, y: lineWidth),
                                  CGPoint(x: dimension * 38.0 / 100.0, y: dimension * 38.0 / 100.0),
